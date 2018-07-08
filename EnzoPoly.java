@@ -33,6 +33,7 @@ public class EnzoPoly implements Polynomial{
                 }else{
                     this.map.add(degree,(y + x.getValue()));
                 }
+                x = it.next();
             }
         }
     }
@@ -48,6 +49,7 @@ public class EnzoPoly implements Polynomial{
             MapNode<Double,Double> x = it.next();
             while(x != null){
                 out += x.getValue()+"x^"+x.getKey()+ " ";
+                x = it.next();
             }
         }
         return out;

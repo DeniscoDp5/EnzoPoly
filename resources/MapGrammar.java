@@ -29,17 +29,19 @@ public class MapGrammar<K,V>{
         Iterator<MapNode<K,V>> it =  this.map.iterator();
 
         MapNode<K,V> x = it.next();
+        MapNode<K,V> tmp2 = null;
         boolean bool = true;
         
         while(x != null && bool){
             if(x.equals(tmp)){
+                tmp2 = x;
                 bool = false;
             }
             x = it.next();
         }
 
-        if( bool == false){
-            x.value = value;
+        if( bool == false && tmp2 != null){
+            tmp2.value = value;
         }else{
             this.map.add(tmp);
         }
