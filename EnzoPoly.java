@@ -56,7 +56,9 @@ public class EnzoPoly implements Polynomial{
     }
 
     public void add(Double coeff, Double degree){
-        this.map.add(degree, coeff);
+        EnzoPoly b = new EnzoPoly();
+        b.map.add(degree,coeff);
+        this.add(b);
     }
 
     public Polynomial mult(Polynomial a){
