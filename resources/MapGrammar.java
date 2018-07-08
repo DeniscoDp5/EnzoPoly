@@ -10,7 +10,7 @@ import utils.MapNode;
  */
 public class MapGrammar<K,V>{
 
-    List<MapNode<K,V>> map;
+    public List<MapNode<K,V>> map; // Todo set to private and implement an iterator for the keys
     
     public MapGrammar(){
         this.map = new List<MapNode<K,V>>();
