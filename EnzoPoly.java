@@ -55,14 +55,30 @@ public class EnzoPoly implements Polynomial{
         return out;
     }
 
-    public void add(Double coeff, Double degree){
+    public void add(double coeff, double degree){
         EnzoPoly b = new EnzoPoly();
-        b.map.add(degree,coeff);
+        b.map.add((Double) degree,(Double) coeff);
         this.add(b);
     }
 
     public Polynomial mult(Polynomial a){
         
-        return new EnzoPoly();
+        Polynomial res = new EnzoPoly();
+        Iterator<MapNode<Double,Double>> it= this.map.map.iterator();
+        MapNode x = it.next();
+        while(x != null){
+            EnzoPoly tmp = (EnzoPoly) a;
+            Iterator<MapNode<Double,Double>> it2 = tmp.map.map.iterator();
+            MapNode y = it2.next();
+            while(y != null){
+                Double degree = (double)x.getKey() + (double)y.getKey();
+                Double coeff = (double) x.getValue() * (double)y.getValue();
+                res.add(coeff,degree);
+                 
+                y= it2.next();
+            }
+            x = it.next();
+        }
+        return res;
     }
 }

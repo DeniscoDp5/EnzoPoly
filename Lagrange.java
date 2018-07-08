@@ -16,7 +16,7 @@ public class Lagrange {
 	 * @param y
 	 */
 	public void addPolynomialPoint(double x, double y) {
-		Polynomial p = new Polynomial();
+		Polynomial p = new EnzoPoly();
 		p.add(1, 1); // coefficente, esponente
 		p.add(-x, 0);
 		polinomiDelNumeratore.add(p);
@@ -36,7 +36,7 @@ public class Lagrange {
 	}
 
 	public void creaNumeratore() {
-		Polynomial numeratore = new Polynomial();
+		Polynomial numeratore = new EnzoPoly();
 		numeratore.add(1,0);
 		Iterator<Polynomial> itg = polinomiDelNumeratore.iterator();
 		for (int i = 0; itg.hasNext(); i++) {
@@ -50,7 +50,7 @@ public class Lagrange {
 	 */
 	public void creaYFrattoDen() {
 		Iterator<Point> itg = points.iterator();
-		Polynomial p = new Polynomial();
+		Polynomial p = new EnzoPoly();
 		for (int i = 0; itg.hasNext(); i++) {
 			p.add( points.get(i).getY() / denominatori.get(i), 0);
 			yFrattoDen.add(p);
@@ -59,7 +59,7 @@ public class Lagrange {
 	}
 	
 	public Polynomial completa(){
-		Polynomial lagrange = new Polynomial();
+		Polynomial lagrange = new EnzoPoly();
 		Iterator<Polynomial> itg = polinomiDelNumeratore.iterator();
 		Polynomial temp;
 		for (int i = 0; itg.hasNext(); i++) {

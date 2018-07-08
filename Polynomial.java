@@ -9,7 +9,7 @@ public interface Polynomial{
     /**
      * This method adds coeffx^(degree) to the polinomial
      */
-    public void add(Double coeff, Double degree);
+    public void add(double coeff, double degree);
 
     /**
      * This method multyply this * a
